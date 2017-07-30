@@ -37,10 +37,10 @@ from bs4 import BeautifulSoup
 # end up missing most of the results.
 # Param st_items can be either a list of zipcode strings, or a single zipcode 
 # string.
-st = zl.zipcodes_list(st_items = ["100", "770"])
+st = zl.zipcodes_list(st_items = ["32603", "32601","32602"])
 
 # Initialize the webdriver.
-driver = zl.init_driver("C:/Users/username/chromedriver.exe")
+driver = zl.init_driver("/Users/JYP/Desktop/")
 
 # Go to www.zillow.com/homes
 zl.navigate_to_website(driver, "http://www.zillow.com/homes")

@@ -14,29 +14,29 @@ from selenium.common.exceptions import NoSuchElementException
 def zipcodes_list(st_items):
     # If st_items is a single zipcode string.
     if type(st_items) == str:
-        zc_objects = zipcode.islike(st_items)
+        zc_objects = zipcode.islike(st_items)  #use of zipcode package # function 'islike' 
         output = [str(i).split(" ", 1)[1].split(">")[0] 
                     for i in zc_objects]
     # If st_items is a list of zipcode strings.
     elif type(st_items) == list:
-        zc_objects = [n for i in st_items for n in zipcode.islike(str(i))]
-        output = [str(i).split(" ", 1)[1].split(">")[0] 
+        zc_objects = [n for i in st_items for n in zipcode.islike(str(i))] 
+        output = [str(i).split(" ", 1)[1].split(">")[0] #use of function 'split'
                     for i in zc_objects]
     else:
-        raise ValueError("input 'st_items' must be of type str or list")
+        raise ValueError("input 'st_items' must be of type str or list") 
     return(output)
 
 def init_driver(file_path):
     # Starting maximized fixes https://github.com/ChrisMuir/Zillow/issues/1
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
+    options = webdriver.ChromeOptions() #what is :webdriver.ChromeOptions()?
+    options.add_argument("--start-maximized")  #what is 'add_arguement'?
 
-    driver = webdriver.Chrome(executable_path=file_path, chrome_options=options)
-    driver.wait = WebDriverWait(driver, 10)
-    return(driver)
+    driver = webdriver.Chrome(executable_path=file_path, chrome_options=options) #what is: webdriver.Chrome 
+    driver.wait = WebDriverWait(driver, 10) #what is: WebDriverWait? #result stored in objective? (diver.wait) how?
+    return(driver) #returning driver: what is being returned?
 
 def navigate_to_website(driver, site):
-    driver.get(site)
+    driver.get(site) #what is: driver.get?
 
 def click_buy_button(driver):
     try:
